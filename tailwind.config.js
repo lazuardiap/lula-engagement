@@ -6,6 +6,10 @@ module.exports = {
       colors: {
         'primary': '#4C5B3F',
         'nude': '#F5EFEC'
+      },
+      fontFamily: {
+        lora: ['Lora', 'serif'],
+        tangerine: ['Tangerine', 'cursive']
       }
     },
   },
