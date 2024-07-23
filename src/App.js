@@ -8,9 +8,9 @@ export default function App() {
   const container = useRef();
 
   useGSAP(() => {
-    gsap.from('.title', {y: -100, opacity: 0, duration:2});
-    gsap.from('.names', {y: 100, opacity: 0, duration:2});
-    gsap.from('.name-logo', {scale: 2, opacity:0, duration:2});
+    gsap.from('.title', {y: -100, opacity: 0, duration:2, delay:2});
+    gsap.from('.names', {y: 100, opacity: 0, duration:2, delay:2});
+    gsap.from('.name-logo', {scale: 2, opacity:0, duration:2, delay:2});
   }, { scope: container }
   )
 
