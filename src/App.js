@@ -1,10 +1,19 @@
-import logo from './logo.svg';
-import './index.css';
+import Layout from './components/Layout';
 
 export default function App() {
   return (
-    <p className="text-2xl">
-      Hello world!
-    </p>
+    <Layout>
+      <div className='h-full relative'>
+        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%] space-y-10'>
+          <div className='title justify-center flex relative text-2xl'>
+            <h1>THE ENGAGEMENT OF</h1>
+          </div>
+          <img src="/assets/logo.png" alt="" className='w-full' />
+          <div className='names justify-center flex relative text-2xl'>
+            <h1>Luthfia & Lazuardi</h1>
+          </div>
+        </div>
+      </div>
+    </Layout>
   )
 }
