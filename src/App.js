@@ -1,6 +1,10 @@
 import Layout from './components/Layout';
+import { useRef } from 'react';
 
 export default function App() {
+
+  const container = useRef();
+
   return (
     <Layout>
       <div className='h-full relative'>
