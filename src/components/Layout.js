@@ -1,5 +1,7 @@
 import { Children } from 'react';
 import '../App.css';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 export default function Layout({ children }) {
   return (
