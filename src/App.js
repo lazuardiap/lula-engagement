@@ -41,6 +41,7 @@ export default function App() {
         endTrigger: ".content",
         pin: true,
         pinSpacing: false,
+        snap: {duration: 1, ease: 'power4.out', snapTo:1},
         // markers: true
       },
     })
@@ -132,7 +133,7 @@ export default function App() {
         trigger: ".content",
         start: 'top center',
         end: 'bottom center',
-        markers: true,
+        // markers: true,
         onLeaveBack: () => {
           // setIsIntersect(false);
           gsap.to('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 });
@@ -144,8 +145,8 @@ export default function App() {
   }, { scope: container })
 
   return (
-    <div className='swipe-section' ref={container}>
-      <section className='hero'>
+    <div className='swipe-section snap-y' ref={container}>
+      <section className='hero snap-start'>
         <div className='text-primary bg-nude h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className="absolute -top-16 flower-1-top">
             <img src="/assets/flower-1.png" alt="" />
@@ -171,7 +172,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className='content' ref={sectionRef}>
+      <section className='content snap-start' ref={sectionRef}>
         <div className='text-primary bg-nude h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className={`absolute -top-16 nd-flower-1-top ${isIntersect ? 'visible' : 'invisible'}`}>
             <img src="/assets/flower-1.png" alt="" />
