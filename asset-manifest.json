@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lula-engagement/static/css/main.29d86d1e.css",
+    "main.js": "/lula-engagement/static/js/main.e0c2dab7.js",
+    "static/js/453.e5908027.chunk.js": "/lula-engagement/static/js/453.e5908027.chunk.js",
+    "index.html": "/lula-engagement/index.html",
+    "main.29d86d1e.css.map": "/lula-engagement/static/css/main.29d86d1e.css.map",
+    "main.e0c2dab7.js.map": "/lula-engagement/static/js/main.e0c2dab7.js.map",
+    "453.e5908027.chunk.js.map": "/lula-engagement/static/js/453.e5908027.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.29d86d1e.css",
+    "static/js/main.e0c2dab7.js"
+  ]
+}
