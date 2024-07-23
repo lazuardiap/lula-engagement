@@ -1,6 +1,6 @@
 {
   "name": "lula-engagement",
-  "homepage": "https://lazuardiap.github.io/lula-engagement",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
