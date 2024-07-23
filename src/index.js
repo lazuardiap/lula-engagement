@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='flex flex-col items-center bg-nude relative'>
+    <div className='items-center bg-nude relative block'>
       <App />
     </div>
   </React.StrictMode>
