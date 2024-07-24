@@ -8,6 +8,11 @@ gsap.registerPlugin(ScrollTrigger);
 export default function App() {
 
   const [isIntersect, setIsIntersect] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 5000)
 
   const container = useRef(null);
 
@@ -41,7 +46,7 @@ export default function App() {
         endTrigger: ".content",
         pin: true,
         pinSpacing: false,
-        snap: {duration: 1, ease: 'power4.out', snapTo:1},
+        snap: { duration: 1, ease: 'power4.out', snapTo: 1 },
         // markers: true
       },
     })
@@ -114,6 +119,10 @@ export default function App() {
         if (event.isIntersecting) {
           setIsIntersect(true);
           fadeIn()
+          setIsLoading(true);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 4000)
         } else {
           // setIsIntersect(false);
           fadeOut()
@@ -143,6 +152,10 @@ export default function App() {
       },
     });
   }, { scope: container })
+
+  useEffect(() => {
+    isLoading ? document.documentElement.style.overflow = "hidden" : document.documentElement.style.overflow = ""
+  }, [isLoading])
 
   return (
     <div className='swipe-section snap-y' ref={container}>
@@ -178,7 +191,7 @@ export default function App() {
             <img src="/assets/flower-1.png" alt="" />
           </div>
           <div>
-            
+
           </div>
           <img src="/assets/flower-2.png" alt="" className={`w-[30%] absolute top-1/2 transform -translate-y-full -right-[3rem] nd-flower-2 ${isIntersect ? 'visible' : 'invisible'}`} />
           <img src="/assets/flower-2.png" alt="" className={`w-[30%] absolute top-1/2 -translate-y-full -left-[3rem] transform scale-x-[-1] nd-flower-2 ${isIntersect ? 'visible' : 'invisible'}`} />
