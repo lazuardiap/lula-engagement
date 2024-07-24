@@ -30,6 +30,7 @@ export default function App() {
 
     function intro() {
       var tl = gsap.timeline();
+      tl.from('.sub-title', { y: -100, opacity: 0, duration: 2, delay: 3 }, 1);
       tl.from('.title', { y: -100, opacity: 0, duration: 2, delay: 2 }, 1);
       tl.from('.names', { y: 100, opacity: 0, duration: 2, delay: 2 }, 1);
       tl.from('.name-logo', { scale: 2, opacity: 0, duration: 2, delay: 2 }, 1);
@@ -90,7 +91,7 @@ export default function App() {
       console.log('fadeIn')
       gsap.fromTo('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2 });
       gsap.fromTo('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2, delay: 1 });
-      gsap.fromTo('.nd-flower-2', { opacity: 0, duration: 1}, { opacity: 1, duration: 1, delay: 3 })
+      gsap.fromTo('.nd-flower-2', { opacity: 0, duration: 1 }, { opacity: 1, duration: 1, delay: 3 })
       gsap.fromTo('.nd-content', { y: 100, opacity: 0, duration: 2, stagger: 0.3, ease: 'power2.out' }, { y: 0, opacity: 1, duration: 2, stagger: 0.3, ease: 'power2.out' })
       gsap.fromTo('.map-button', { x: 100, opacity: 0, ease: 'power2.out', delay: 4 }, { x: 0, opacity: 1, ease: 'power2.out', delay: 4 })
     }
@@ -136,7 +137,7 @@ export default function App() {
           // setIsIntersect(false);
           gsap.to('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 });
           gsap.to('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 });
-          gsap.to('.nd-flower-2', { opacity: 0, duration: 1});
+          gsap.to('.nd-flower-2', { opacity: 0, duration: 1 });
           gsap.to('.nd-content', { y: 100, opacity: 0, duration: 1, stagger: 0.3, ease: 'power2.out' });
           gsap.to('.map-button', { x: 100, opacity: 0, ease: 'power2.out' });
         }
@@ -158,8 +159,13 @@ export default function App() {
           <div className="h-screen">
             <div className='h-full relative'>
               <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%]'>
-                <div className='title justify-center flex relative text-2xl font-lora font-bold mb-8'>
-                  <h1>THE ENGAGEMENT OF</h1>
+                <div className='flex flex-col space-y-2 mb-3'>
+                  <div className='sub-title justify-center flex relative text-xs font-lora font-medium'>
+                    <h1>YOU ARE INVITED TO</h1>
+                  </div>
+                  <div className='title justify-center flex relative text-2xl font-lora font-bold mb-8'>
+                    <h1>THE ENGAGEMENT OF</h1>
+                  </div>
                 </div>
                 <div className='mb-1'>
                   <img src="/assets/logo.png" alt="" className='w-full name-logo' />
