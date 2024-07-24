@@ -192,20 +192,20 @@ export default function App() {
             <div className='h-full relative'>
               <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%] ${isIntersect ? 'visible' : 'invisible'}`}>
                 <div className='flex flex-col space-y-2 mb-3'>
-                  <div className='nd-content justify-center flex relative text-sm font-lora font-medium'>
+                  <div className='nd-content justify-center flex relative text-xs font-lora font-medium'>
                     <h1>SAVE THE DATE</h1>
                   </div>
-                  <div className='nd-content justify-center flex relative text-3xl font-lora font-medium'>
+                  <div className='nd-content justify-center flex relative text-2xl font-lora font-medium'>
                     <h1>AUGUST</h1>
                   </div>
                 </div>
-                <img src="/assets/date.png" alt="" className='w-3/4 mb-4 nd-content' />
+                <img src="/assets/date.png" alt="" className='w-[75%] mb-4 nd-content' />
                 <div className='flex flex-col space-y-2 mb-4'>
-                  <div className='nd-content justify-center flex relative text-base font-inter tracking-[.2em]'>
+                  <div className='nd-content justify-center flex relative text-sm font-inter tracking-[.2em]'>
                     <h1>SATURDAY | 03.08.2024</h1>
                   </div>
                   <div className='nd-content flex flex-col items-center'>
-                    <div className='justify-center flex relative text-base font-inter tracking-[.2em]'>
+                    <div className='justify-center flex relative text-sm font-inter tracking-[.2em]'>
                       <h1>09.30 AM</h1>
                     </div>
                     <div className='w-[30%]'>
@@ -213,7 +213,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className='nd-content justify-center flex relative font-inter tracking-widest text-center text-sm'>
+                <div className='nd-content justify-center flex relative font-inter tracking-widest text-center text-xs'>
                   <h1>Perum Prima Sukaharja Blok G1 No.3, Sukaharja, Telukjambe Timur, Karawang</h1>
                 </div>
               </div>
