@@ -190,8 +190,36 @@ export default function App() {
           <div className={`absolute -top-16 nd-flower-1-top ${isIntersect ? 'visible' : 'invisible'}`}>
             <img src="/assets/flower-1.png" alt="" />
           </div>
-          <div>
-
+          <div className="h-screen">
+            <div className='h-full relative'>
+              <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%]'>
+                <div className='flex flex-col space-y-2 mb-3'>
+                  <div className='justify-center flex relative text-sm font-lora font-medium'>
+                    <h1>SAVE THE DATE</h1>
+                  </div>
+                  <div className='justify-center flex relative text-3xl font-lora font-medium'>
+                    <h1>AUGUST</h1>
+                  </div>
+                </div>
+                <img src="/assets/date.png" alt="" className='w-3/4 mb-4' />
+                <div className='flex flex-col space-y-2 mb-4'>
+                  <div className='justify-center flex relative text-base font-inter tracking-[.2em]'>
+                    <h1>SATURDAY | 03.08.2024</h1>
+                  </div>
+                  <div className='flex flex-col items-center'>
+                    <div className='justify-center flex relative text-base font-inter tracking-[.2em]'>
+                      <h1>09.30 AM</h1>
+                    </div>
+                    <div className='w-[30%]'>
+                      <img src="/assets/fence.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+                <div className='justify-center flex relative font-inter tracking-widest text-center text-sm'>
+                    <h1>Perum Prima Sukaharja Blok G1 No.3, Sukaharja, Telukjambe Timur, Karawang</h1>
+                  </div>
+              </div>
+            </div>
           </div>
           <img src="/assets/flower-2.png" alt="" className={`w-[30%] absolute top-1/2 transform -translate-y-full -right-[3rem] nd-flower-2 ${isIntersect ? 'visible' : 'invisible'}`} />
           <img src="/assets/flower-2.png" alt="" className={`w-[30%] absolute top-1/2 -translate-y-full -left-[3rem] transform scale-x-[-1] nd-flower-2 ${isIntersect ? 'visible' : 'invisible'}`} />

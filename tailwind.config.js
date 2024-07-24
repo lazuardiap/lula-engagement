@@ -10,7 +10,8 @@ module.exports = {
       },
       fontFamily: {
         lora: ['Lora', 'serif'],
-        tangerine: ['Tangerine', 'cursive']
+        tangerine: ['Tangerine', 'cursive'],
+        inter: ['Inter', 'sans-serif']
       }
     },
   },
