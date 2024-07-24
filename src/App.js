@@ -104,6 +104,8 @@ export default function App() {
       gsap.fromTo('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2 });
       gsap.fromTo('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2, delay: 1 });
       gsap.fromTo('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5 }, { opacity: 1, duration: 1, stagger: 0.5, delay: 3 })
+      gsap.fromTo('.nd-content', { y: 100, opacity: 0, duration: 2, stagger: 0.3, ease: 'power2.out' }, { y: 0, opacity: 1, duration: 2, stagger: 0.3, ease: 'power2.out' })
+      gsap.fromTo('.map-button', { x:100, opacity: 0, ease: 'power2.out', delay: 4}, {x:0, opacity: 1, ease: 'power2.out', delay: 4})
     }
 
     const fadeOut = () => {
@@ -147,7 +149,9 @@ export default function App() {
           // setIsIntersect(false);
           gsap.to('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 });
           gsap.to('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 });
-          gsap.to('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5 })
+          gsap.to('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5 });
+          gsap.to('.nd-content', { y: 100, opacity: 0, duration: 1, stagger: 0.3, ease: 'power2.out' });
+          gsap.to('.map-button', { x:100, opacity: 0, ease: 'power2.out'});
         }
       },
     });
@@ -192,21 +196,21 @@ export default function App() {
           </div>
           <div className="h-screen">
             <div className='h-full relative'>
-              <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%]'>
+              <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%] ${isIntersect ? 'visible' : 'invisible'}`}>
                 <div className='flex flex-col space-y-2 mb-3'>
-                  <div className='justify-center flex relative text-sm font-lora font-medium'>
+                  <div className='nd-content justify-center flex relative text-sm font-lora font-medium'>
                     <h1>SAVE THE DATE</h1>
                   </div>
-                  <div className='justify-center flex relative text-3xl font-lora font-medium'>
+                  <div className='nd-content justify-center flex relative text-3xl font-lora font-medium'>
                     <h1>AUGUST</h1>
                   </div>
                 </div>
-                <img src="/assets/date.png" alt="" className='w-3/4 mb-4' />
+                <img src="/assets/date.png" alt="" className='w-3/4 mb-4 nd-content' />
                 <div className='flex flex-col space-y-2 mb-4'>
-                  <div className='justify-center flex relative text-base font-inter tracking-[.2em]'>
+                  <div className='nd-content justify-center flex relative text-base font-inter tracking-[.2em]'>
                     <h1>SATURDAY | 03.08.2024</h1>
                   </div>
-                  <div className='flex flex-col items-center'>
+                  <div className='nd-content flex flex-col items-center'>
                     <div className='justify-center flex relative text-base font-inter tracking-[.2em]'>
                       <h1>09.30 AM</h1>
                     </div>
@@ -215,7 +219,7 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-                <div className='justify-center flex relative font-inter tracking-widest text-center text-sm'>
+                <div className='nd-content justify-center flex relative font-inter tracking-widest text-center text-sm'>
                   <h1>Perum Prima Sukaharja Blok G1 No.3, Sukaharja, Telukjambe Timur, Karawang</h1>
                 </div>
               </div>
@@ -228,7 +232,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className='absolute z-999 bottom-[40%] right-0 p-2'>
+        <div className={`map-button absolute z-999 bottom-[40%] right-0 p-2 ${isIntersect ? 'visible' : 'invisible'}`}>
           <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank'>
             <div className='bg-semi-nude p-4 rounded-full flex'>
               <img src="/assets/location.png" alt="" width="25px" height="25px" />
