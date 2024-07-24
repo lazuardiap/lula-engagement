@@ -6,7 +6,8 @@ module.exports = {
     extend: {
       colors: {
         'primary': '#4C5B3F',
-        'nude': '#F5EFEC'
+        'nude': '#F5EFEC',
+        'semi-nude': '#E7B99A'
       },
       fontFamily: {
         lora: ['Lora', 'serif'],

@@ -185,7 +185,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className='content snap-start' ref={sectionRef}>
+      <section className='content snap-start relative' ref={sectionRef}>
         <div className='text-primary bg-nude h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className={`absolute -top-16 nd-flower-1-top ${isIntersect ? 'visible' : 'invisible'}`}>
             <img src="/assets/flower-1.png" alt="" />
@@ -216,8 +216,8 @@ export default function App() {
                   </div>
                 </div>
                 <div className='justify-center flex relative font-inter tracking-widest text-center text-sm'>
-                    <h1>Perum Prima Sukaharja Blok G1 No.3, Sukaharja, Telukjambe Timur, Karawang</h1>
-                  </div>
+                  <h1>Perum Prima Sukaharja Blok G1 No.3, Sukaharja, Telukjambe Timur, Karawang</h1>
+                </div>
               </div>
             </div>
           </div>
@@ -226,6 +226,14 @@ export default function App() {
           <div className={`absolute -bottom-16 [transform:rotatex(180deg)] nd-flower-1-bot ${isIntersect ? 'visible' : 'invisible'}`}>
             <img src="/assets/flower-1.png" alt="" />
           </div>
+        </div>
+
+        <div className='absolute z-999 bottom-[40%] right-0 p-2'>
+          <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank'>
+            <div className='bg-semi-nude p-4 rounded-full flex'>
+              <img src="/assets/location.png" alt="" width="25px" height="25px" />
+            </div>
+          </a>
         </div>
       </section>
     </div>
