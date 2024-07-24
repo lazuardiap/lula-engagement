@@ -17,6 +17,9 @@ module.exports = {
       backgroundImage: {
         'paper-pattern': "url('../public/assets/white-paper-texture.png')",
         'nude-paper-pattern': "url('../public/assets/nude-paper-texture.png')",
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       }
     },
   },

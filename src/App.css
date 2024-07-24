@@ -40,3 +40,27 @@
 .rotatey {
   transform: rotateY(180);
 }
+
+.tooltip .tooltiptext {
+  width: 120px;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 20%;
+  left: 110%;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 40%;
+  left: 0;
+  margin-left: -10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #4c5b3f transparent transparent transparent;
+  transform: rotate(90deg);
+}

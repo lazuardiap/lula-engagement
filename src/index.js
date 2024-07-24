@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='items-center bg-nude relative grid h-full overflow-hidden'>
+    <div className='items-center bg-nude relative block h-full'>
       <App />
     </div>
   </React.StrictMode>

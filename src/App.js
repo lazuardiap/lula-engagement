@@ -3,12 +3,15 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useIntersection } from 'react-use';
+import sound from './i-see-the-light.mp3';
+import './App.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
 
   const [isIntersect, setIsIntersect] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isPlay, setIsPlay] = useState(false);
 
   setTimeout(() => {
     setIsLoading(false);
@@ -17,6 +20,9 @@ export default function App() {
   const container = useRef(null);
 
   const sectionRef = useRef(null);
+
+  const playRef = useRef(null);
+  const playBtn = useRef(null);
 
   const intersection = useIntersection(sectionRef, {
     root: null,
@@ -38,7 +44,9 @@ export default function App() {
       tl.from('.flower-1-top', { y: -100, opacity: 0, duration: 2, }, 1);
       tl.from('.flower-1-bot', { y: 100, opacity: 0, duration: 2, delay: 1 }, 1);
       tl.from('.flower-2', { opacity: 0, duration: 1, delay: 3 }, 1);
-      tl.from('.hashtag', { y: 10, opacity: 0, duration: 2, delay: 3, ease: 'power1.out' }, 2)
+      tl.from('.hashtag', { y: 10, opacity: 0, duration: 2, delay: 3, ease: 'power1.out' }, 2);
+      tl.from('.spin-st', {opacity: 0, duration: 2, delay: 1, ease: 'power1.out' }, 1);
+      tl.from('.tooltiptext', {opacity: 0, x: 10, duration: 2, delay: 4, ease: 'power1.out'}, 1)
 
       return tl;
     }
@@ -48,7 +56,7 @@ export default function App() {
       tl5.addLabel("flower-move");
       tl5.to('.flower-1-top', { y: -10, duration: 2, ease: "power1.inOut" }, 'flower-move');
       tl5.to('.flower-1-bot', { y: 10, duration: 2, ease: "power1.inOut" }, 'flower-move');
-
+      tl5.to('.tooltiptext', {x: 10, duration: 2, ease: "power1.inOut"}, 'flower-move');
       return tl5;
     }
 
@@ -78,9 +86,11 @@ export default function App() {
     })
     tl2.to('.name-logo', { scale: 0, opacity: 0, duration: 5 });
     tl2.to('.flower-1-top', { y: -100, opacity: 0, duration: 4 }, 1);
+    tl2.to('.sub-title', { y: -100, opacity: 0, duration: 2 }, 1);
     tl2.to('.title', { y: -100, opacity: 0, duration: 3 }, 1);
     tl2.to('.flower-2', { opacity: 0, duration: 1 }, 1)
     tl2.to('.names', { y: 100, opacity: 0, duration: 2 }, 1);
+    tl2.to('.hashtag', { y: 10, opacity: 0, duration: 2, ease: 'power1.out' }, 1);
     tl2.to('.flower-1-bot', { y: 100, opacity: 0, duration: 4 }, 1);
   }, { scope: container }
   )
@@ -88,16 +98,17 @@ export default function App() {
   useGSAP(() => {
 
     const fadeIn = () => {
-      console.log('fadeIn')
+      // console.log('fadeIn')
       gsap.fromTo('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2 });
       gsap.fromTo('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2, delay: 1 });
       gsap.fromTo('.nd-flower-2', { opacity: 0, duration: 1 }, { opacity: 1, duration: 1, delay: 3 })
       gsap.fromTo('.nd-content', { y: 100, opacity: 0, duration: 2, stagger: 0.3, ease: 'power2.out' }, { y: 0, opacity: 1, duration: 2, stagger: 0.3, ease: 'power2.out' })
       gsap.fromTo('.map-button', { x: 100, opacity: 0, ease: 'power2.out', delay: 4 }, { x: 0, opacity: 1, ease: 'power2.out', delay: 4 })
+      gsap.fromTo('.spin-nd', {opacity: 0, duration: 2, delay: 1, ease: 'power1.out' }, {opacity: 1, duration: 2, delay: 1, ease: 'power1.out' });
     }
 
     const fadeOut = () => {
-      console.log('fadeOut')
+      // console.log('fadeOut')
     }
 
     if (!sectionRef.current) {
@@ -140,6 +151,7 @@ export default function App() {
           gsap.to('.nd-flower-2', { opacity: 0, duration: 1 });
           gsap.to('.nd-content', { y: 100, opacity: 0, duration: 1, stagger: 0.3, ease: 'power2.out' });
           gsap.to('.map-button', { x: 100, opacity: 0, ease: 'power2.out' });
+          gsap.to('.spin-nd', {opacity: 0, duration: 2, ease: 'power1.out' });
         }
       },
     });
@@ -149,10 +161,20 @@ export default function App() {
     isLoading ? document.documentElement.style.overflow = "hidden" : document.documentElement.style.overflow = ""
   }, [isLoading])
 
+  useEffect(() => {
+    if (isPlay){
+      playRef.current.play();
+    } else {
+      playRef.current.pause();
+    }
+  }, [isPlay])
+
+
+
   return (
-    <div className='swipe-section snap-y' ref={container}>
+    <div className='swipe-section snap-y max-w-[400px] relative' ref={container}>
       <section className='hero snap-start flex justify-center'>
-        <div className='text-primary bg-nude-paper-pattern h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
+        <div className='text-primary bg-nude-paper-pattern h-screen w-full max-h-screen relative overflow-hidden'>
           <div className="absolute -top-16 flower-1-top">
             <img src="/assets/flower-1.png" alt="" />
           </div>
@@ -186,12 +208,16 @@ export default function App() {
           <div className="absolute -bottom-16 [transform:rotatex(180deg)] flower-1-bot">
             <img src="/assets/flower-1.png" alt="" />
           </div>
+          <div id='startbtn' ref={playBtn} className={`absolute bottom-[5%] left-[5%] w-[56px] spin-st tooltip ${isPlay ? 'animate-spin-slow' : ''}`} onClick={() => setIsPlay(!isPlay)} >
+            <img src="/assets/vinyl.png" alt="" />
+            <div className={`tooltiptext font-lora bg-primary ${isPlay ? 'invisible' : 'visible'}`}>Play Sound</div>
+          </div>
         </div>
       </section>
 
       <section className='content snap-start relative flex justify-center' ref={sectionRef}>
-        <div className='text-primary bg-nude-paper-pattern h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
-          <div className={`absolute -top-16 nd-flower-1-top ${isIntersect ? 'visible' : 'invisible'}`}>
+        <div className='text-primary bg-nude-paper-pattern h-screen w-full max-h-screen relative overflow-hidden'>
+          <div className={`absolute -top-16 nd-flower-1-top`}>
             <img src="/assets/flower-1.png" alt="" />
           </div>
           <div className="h-screen">
@@ -231,13 +257,18 @@ export default function App() {
             <img src="/assets/flower-1.png" alt="" />
           </div>
           <div className={`map-button absolute z-999 bottom-[40%] right-0 p-2 ${isIntersect ? 'visible' : 'invisible'}`}>
-            <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank' rel="noreferrer" git add>
+            <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank' rel="noreferrer">
               <div className='bg-semi-nude p-4 rounded-full flex'>
                 <img src="/assets/location.png" alt="" width="25px" height="25px" />
               </div>
             </a>
           </div>
+          <div id='startbtn' ref={playBtn} className={`absolute bottom-[5%] left-[5%] w-[56px] spin-nd tooltip ${isPlay ? 'animate-spin-slow' : ''} ${isIntersect ? 'visible' : 'invisible'}`} onClick={() => setIsPlay(!isPlay)} >
+            <img src="/assets/vinyl.png" alt="" />
+            {/* <div className={`tooltiptext tooltip-nd font-lora bg-primary`}>Play Sound</div> */}
+          </div>
         </div>
+        <audio src={sound} ref={playRef} loop={true} autoPlay={true} muted={false}></audio>
       </section>
     </div>
   )
