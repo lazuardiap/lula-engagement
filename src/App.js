@@ -37,6 +37,7 @@ export default function App() {
       tl.from('.flower-1-top', { y: -100, opacity: 0, duration: 2, }, 1);
       tl.from('.flower-1-bot', { y: 100, opacity: 0, duration: 2, delay: 1 }, 1);
       tl.from('.flower-2', { opacity: 0, duration: 1, stagger: 0.5, delay: 3 }, 1);
+      tl.from('.hashtag', { y: 10, opacity: 0, duration: 2, delay: 3, ease: 'power1.out' }, 2)
 
       return tl;
     }
@@ -44,7 +45,7 @@ export default function App() {
     function middle() {
       var tl5 = gsap.timeline({ repeat: -1, yoyo: true });
       tl5.addLabel("flower-move");
-      tl5.to('.flower-1-top', { y: -10, duration: 2, ease: "power1.inOut" } ,'flower-move');
+      tl5.to('.flower-1-top', { y: -10, duration: 2, ease: "power1.inOut" }, 'flower-move');
       tl5.to('.flower-1-bot', { y: 10, duration: 2, ease: "power1.inOut" }, 'flower-move');
 
       return tl5;
@@ -156,13 +157,20 @@ export default function App() {
           </div>
           <div className="h-screen">
             <div className='h-full relative'>
-              <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%] space-y-8'>
-                <div className='title justify-center flex relative text-2xl font-lora font-bold'>
+              <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center w-[80%]'>
+                <div className='title justify-center flex relative text-2xl font-lora font-bold mb-8'>
                   <h1>THE ENGAGEMENT OF</h1>
                 </div>
-                <img src="/assets/logo.png" alt="" className='w-full name-logo' />
-                <div className='names justify-center flex relative text-5xl font-tangerine font-bold'>
-                  <h1>Luthfia & Lazuardi</h1>
+                <div className='mb-1'>
+                  <img src="/assets/logo.png" alt="" className='w-full name-logo' />
+                </div>
+                <div className='space-y-1'>
+                  <div className='names justify-center flex relative text-5xl font-tangerine font-bold'>
+                    <h1>Luthfia & Lazuardi</h1>
+                  </div>
+                  <div className='hashtag justify-center flex relative text-base font-lora font-bold'>
+                    <h1>#AGateToEternalLULAby</h1>
+                  </div>
                 </div>
               </div>
             </div>
