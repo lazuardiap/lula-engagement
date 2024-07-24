@@ -13,6 +13,9 @@ module.exports = {
         lora: ['Lora', 'serif'],
         tangerine: ['Tangerine', 'cursive'],
         inter: ['Inter', 'sans-serif']
+      },
+      backgroundImage: {
+        'paper-pattern': "url('../public/assets/white-paper-texture.png')",
       }
     },
   },

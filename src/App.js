@@ -151,7 +151,7 @@ export default function App() {
   return (
     <div className='swipe-section snap-y' ref={container}>
       <section className='hero snap-start flex justify-center'>
-        <div className='text-primary bg-nude h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
+        <div className='text-primary bg-paper-pattern h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className="absolute -top-16 flower-1-top">
             <img src="/assets/flower-1.png" alt="" />
           </div>
@@ -225,7 +225,7 @@ export default function App() {
             <img src="/assets/flower-1.png" alt="" />
           </div>
           <div className={`map-button absolute z-999 bottom-[40%] right-0 p-2 ${isIntersect ? 'visible' : 'invisible'}`}>
-            <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank'>
+            <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank' rel="noreferrer" git add>
               <div className='bg-semi-nude p-4 rounded-full flex'>
                 <img src="/assets/location.png" alt="" width="25px" height="25px" />
               </div>
