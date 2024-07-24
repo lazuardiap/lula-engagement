@@ -36,7 +36,7 @@ export default function App() {
 
       tl.from('.flower-1-top', { y: -100, opacity: 0, duration: 2, }, 1);
       tl.from('.flower-1-bot', { y: 100, opacity: 0, duration: 2, delay: 1 }, 1);
-      tl.from('.flower-2', { opacity: 0, duration: 1, stagger: 0.5, delay: 3 }, 1);
+      tl.from('.flower-2', { opacity: 0, duration: 1, delay: 3 }, 1);
       tl.from('.hashtag', { y: 10, opacity: 0, duration: 2, delay: 3, ease: 'power1.out' }, 2)
 
       return tl;
@@ -90,7 +90,7 @@ export default function App() {
       console.log('fadeIn')
       gsap.fromTo('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2 });
       gsap.fromTo('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2, delay: 1 });
-      gsap.fromTo('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5 }, { opacity: 1, duration: 1, stagger: 0.5, delay: 3 })
+      gsap.fromTo('.nd-flower-2', { opacity: 0, duration: 1}, { opacity: 1, duration: 1, delay: 3 })
       gsap.fromTo('.nd-content', { y: 100, opacity: 0, duration: 2, stagger: 0.3, ease: 'power2.out' }, { y: 0, opacity: 1, duration: 2, stagger: 0.3, ease: 'power2.out' })
       gsap.fromTo('.map-button', { x: 100, opacity: 0, ease: 'power2.out', delay: 4 }, { x: 0, opacity: 1, ease: 'power2.out', delay: 4 })
     }
@@ -136,7 +136,7 @@ export default function App() {
           // setIsIntersect(false);
           gsap.to('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 });
           gsap.to('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 });
-          gsap.to('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5 });
+          gsap.to('.nd-flower-2', { opacity: 0, duration: 1});
           gsap.to('.nd-content', { y: 100, opacity: 0, duration: 1, stagger: 0.3, ease: 'power2.out' });
           gsap.to('.map-button', { x: 100, opacity: 0, ease: 'power2.out' });
         }
