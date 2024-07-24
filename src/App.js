@@ -151,7 +151,7 @@ export default function App() {
   return (
     <div className='swipe-section snap-y' ref={container}>
       <section className='hero snap-start flex justify-center'>
-        <div className='text-primary bg-paper-pattern h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
+        <div className='text-primary bg-nude-paper-pattern h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className="absolute -top-16 flower-1-top">
             <img src="/assets/flower-1.png" alt="" />
           </div>
@@ -184,7 +184,7 @@ export default function App() {
       </section>
 
       <section className='content snap-start relative flex justify-center' ref={sectionRef}>
-        <div className='text-primary bg-nude h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
+        <div className='text-primary bg-nude-paper-pattern h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className={`absolute -top-16 nd-flower-1-top ${isIntersect ? 'visible' : 'invisible'}`}>
             <img src="/assets/flower-1.png" alt="" />
           </div>

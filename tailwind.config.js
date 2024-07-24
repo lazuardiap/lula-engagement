@@ -16,6 +16,7 @@ module.exports = {
       },
       backgroundImage: {
         'paper-pattern': "url('../public/assets/white-paper-texture.png')",
+        'nude-paper-pattern': "url('../public/assets/nude-paper-texture.png')",
       }
     },
   },
