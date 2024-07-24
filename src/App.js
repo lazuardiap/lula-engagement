@@ -105,7 +105,7 @@ export default function App() {
       gsap.fromTo('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 }, { y: 0, opacity: 1, duration: 2, delay: 1 });
       gsap.fromTo('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5 }, { opacity: 1, duration: 1, stagger: 0.5, delay: 3 })
       gsap.fromTo('.nd-content', { y: 100, opacity: 0, duration: 2, stagger: 0.3, ease: 'power2.out' }, { y: 0, opacity: 1, duration: 2, stagger: 0.3, ease: 'power2.out' })
-      gsap.fromTo('.map-button', { x:100, opacity: 0, ease: 'power2.out', delay: 4}, {x:0, opacity: 1, ease: 'power2.out', delay: 4})
+      gsap.fromTo('.map-button', { x: 100, opacity: 0, ease: 'power2.out', delay: 4 }, { x: 0, opacity: 1, ease: 'power2.out', delay: 4 })
     }
 
     const fadeOut = () => {
@@ -151,7 +151,7 @@ export default function App() {
           gsap.to('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2 });
           gsap.to('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5 });
           gsap.to('.nd-content', { y: 100, opacity: 0, duration: 1, stagger: 0.3, ease: 'power2.out' });
-          gsap.to('.map-button', { x:100, opacity: 0, ease: 'power2.out'});
+          gsap.to('.map-button', { x: 100, opacity: 0, ease: 'power2.out' });
         }
       },
     });
@@ -163,7 +163,7 @@ export default function App() {
 
   return (
     <div className='swipe-section snap-y' ref={container}>
-      <section className='hero snap-start'>
+      <section className='hero snap-start flex justify-center'>
         <div className='text-primary bg-nude h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className="absolute -top-16 flower-1-top">
             <img src="/assets/flower-1.png" alt="" />
@@ -189,7 +189,7 @@ export default function App() {
         </div>
       </section>
 
-      <section className='content snap-start relative' ref={sectionRef}>
+      <section className='content snap-start relative flex justify-center' ref={sectionRef}>
         <div className='text-primary bg-nude h-screen w-full max-w-[400px] max-h-screen relative overflow-hidden'>
           <div className={`absolute -top-16 nd-flower-1-top ${isIntersect ? 'visible' : 'invisible'}`}>
             <img src="/assets/flower-1.png" alt="" />
@@ -230,14 +230,13 @@ export default function App() {
           <div className={`absolute -bottom-16 [transform:rotatex(180deg)] nd-flower-1-bot ${isIntersect ? 'visible' : 'invisible'}`}>
             <img src="/assets/flower-1.png" alt="" />
           </div>
-        </div>
-
-        <div className={`map-button absolute z-999 bottom-[40%] right-0 p-2 ${isIntersect ? 'visible' : 'invisible'}`}>
-          <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank'>
-            <div className='bg-semi-nude p-4 rounded-full flex'>
-              <img src="/assets/location.png" alt="" width="25px" height="25px" />
-            </div>
-          </a>
+          <div className={`map-button absolute z-999 bottom-[40%] right-0 p-2 ${isIntersect ? 'visible' : 'invisible'}`}>
+            <a href="https://maps.app.goo.gl/qbYFoj98rd8UiKwg7" target='_blank'>
+              <div className='bg-semi-nude p-4 rounded-full flex'>
+                <img src="/assets/location.png" alt="" width="25px" height="25px" />
+              </div>
+            </a>
+          </div>
         </div>
       </section>
     </div>
