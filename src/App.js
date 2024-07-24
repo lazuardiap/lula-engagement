@@ -26,17 +26,31 @@ export default function App() {
 
   useGSAP(() => {
 
-    gsap.from('.title', { y: -100, opacity: 0, duration: 2, delay: 2 });
-    gsap.from('.names', { y: 100, opacity: 0, duration: 2, delay: 2 });
-    gsap.from('.name-logo', { scale: 2, opacity: 0, duration: 2, delay: 2 });
+    var tlMaster = gsap.timeline()
 
-    gsap.from('.flower-1-top', { y: -100, opacity: 0, duration: 2 });
-    gsap.from('.flower-1-bot', { y: 100, opacity: 0, duration: 2, delay: 1 });
-    gsap.from('.flower-2', { opacity: 0, duration: 1, stagger: 0.5, delay: 3 })
+    function intro() {
+      var tl = gsap.timeline();
+      tl.from('.title', { y: -100, opacity: 0, duration: 2, delay: 2 }, 1);
+      tl.from('.names', { y: 100, opacity: 0, duration: 2, delay: 2 }, 1);
+      tl.from('.name-logo', { scale: 2, opacity: 0, duration: 2, delay: 2 }, 1);
 
-    // gsap.from('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 });
-    // gsap.from('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 2, delay: 1 });
-    // gsap.from('.nd-flower-2', { opacity: 0, duration: 1, stagger: 0.5, delay: 3 })
+      tl.from('.flower-1-top', { y: -100, opacity: 0, duration: 2, }, 1);
+      tl.from('.flower-1-bot', { y: 100, opacity: 0, duration: 2, delay: 1 }, 1);
+      tl.from('.flower-2', { opacity: 0, duration: 1, stagger: 0.5, delay: 3 }, 1);
+
+      return tl;
+    }
+
+    function middle() {
+      var tl5 = gsap.timeline({ repeat: -1, yoyo: true });
+      tl5.addLabel("flower-move");
+      tl5.to('.flower-1-top', { y: -10, duration: 2, ease: "power1.inOut" } ,'flower-move');
+      tl5.to('.flower-1-bot', { y: 10, duration: 2, ease: "power1.inOut" }, 'flower-move');
+
+      return tl5;
+    }
+
+    tlMaster.add(intro()).add(middle(), "+=0.5");
 
     let tl = gsap.timeline({
       scrollTrigger: {
@@ -58,42 +72,14 @@ export default function App() {
         end: 'bottom bottom',
         scrub: true,
         // markers: true,
-        // onLeave: () => {
-        //   setIsIntersect(true);
-        //   gsap.from('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 });
-        // }
       },
     })
-
-    // let tl3 = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: ".content",
-    //     start: 'top center',
-    //     end: 'bottom bottom',
-    //     scrub: true,
-    //     markers: true,
-    //     onLeave: () => {
-    //       // console.log('aa')
-    //       // gsap.from('.nd-flower-1-top', { y: -100, opacity: 0, duration: 2 });
-    //     },
-    //   },
-    // });
-
-    // tl3.from('.nd-flower-1-top', { y: -100, opacity: 0, duration: 4 }, 1);
-    // tl3.from('.nd-flower-1-bot', { y: 100, opacity: 0, duration: 4, delay: 1 }, 2);
-
-    // tl2.from('.nd-flower-1-top', { y: -100, opacity: 0, duration: 3 });
     tl2.to('.name-logo', { scale: 0, opacity: 0, duration: 5 });
     tl2.to('.flower-1-top', { y: -100, opacity: 0, duration: 4 }, 1);
     tl2.to('.title', { y: -100, opacity: 0, duration: 3 }, 1);
     tl2.to('.flower-2', { opacity: 0, duration: 1 }, 1)
     tl2.to('.names', { y: 100, opacity: 0, duration: 2 }, 1);
     tl2.to('.flower-1-bot', { y: 100, opacity: 0, duration: 4 }, 1);
-
-    // intersection && intersection.intersectionRatio < 0.9 ?
-    //   console.log('aa')
-    //   :
-    //   console.log('bb')
   }, { scope: container }
   )
 
