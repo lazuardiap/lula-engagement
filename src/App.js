@@ -208,7 +208,7 @@ export default function App() {
           <div className="absolute -bottom-16 [transform:rotatex(180deg)] flower-1-bot">
             <img src="/assets/flower-1.png" alt="" />
           </div>
-          <div id='startbtn' ref={playBtn} className={`absolute bottom-[5%] left-[5%] w-[56px] spin-st tooltip ${isPlay ? 'animate-spin-slow' : ''}`} onClick={() => setIsPlay(!isPlay)} >
+          <div id='startbtn' ref={playBtn} className={`absolute bottom-[8%] left-[5%] w-[56px] spin-st tooltip ${isPlay ? 'animate-spin-slow' : ''}`} onClick={() => setIsPlay(!isPlay)} >
             <img src="/assets/vinyl.png" alt="" />
             <div className={`tooltiptext font-lora bg-primary ${isPlay ? 'invisible' : 'visible'}`}>Play Sound</div>
           </div>
@@ -263,7 +263,7 @@ export default function App() {
               </div>
             </a>
           </div>
-          <div id='startbtn' ref={playBtn} className={`absolute bottom-[5%] left-[5%] w-[56px] spin-nd tooltip ${isPlay ? 'animate-spin-slow' : ''} ${isIntersect ? 'visible' : 'invisible'}`} onClick={() => setIsPlay(!isPlay)} >
+          <div id='startbtn' ref={playBtn} className={`absolute bottom-[8%] left-[5%] w-[56px] spin-nd tooltip ${isPlay ? 'animate-spin-slow' : ''} ${isIntersect ? 'visible' : 'invisible'}`} onClick={() => setIsPlay(!isPlay)} >
             <img src="/assets/vinyl.png" alt="" />
             {/* <div className={`tooltiptext tooltip-nd font-lora bg-primary`}>Play Sound</div> */}
           </div>
